@@ -1,0 +1,19 @@
+{
+  "name": "mongodb-sink",
+  "config": {
+    "connector.class": "com.mongodb.kafka.connect.MongoSinkConnector",
+    "tasks.max": "1",
+    "topics": "customers",
+    "connection.uri": "mongodb://root:root@mongodb:27017",
+    "database": "inventory",
+    "collection": "customers",
+    "max.num.retries": "3",
+    "retries.defer.timeout": "5000",
+    "delete.on.null.values": false,
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "key.converter.schemas.enable": true,
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter.schemas.enable": true,
+    "document.id.strategy": "com.mongodb.kafka.connect.sink.processor.id.strategy.UuidStrategy"
+  }
+}
